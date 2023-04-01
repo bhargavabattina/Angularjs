@@ -1,0 +1,85 @@
+<sabpaisa-wrapper #sabPaisaRef></sabpaisa-wrapper>
+
+<form (ngSubmit)="pay()" [formGroup]="registerFrm">
+    <div class="form-group">
+        <label for="payerName">Full Name :<small>(<i class="isRequiredAsterik">*</i>)</small></label>
+        <input type="text"
+            [ngClass]="{'invalid': (pageModel.isRegisterSubmited || regFrm['payerName'].touched) && regFrm['payerName'].invalid }"
+            class="form-control" id="payerName" formControlName="payerName" autocomplete="off">
+        <div class="error-container"
+            *ngIf="(pageModel.isRegisterSubmited || regFrm['payerName'].touched) && regFrm['payerName'].invalid">
+            <div class="error-message">
+                <span *ngIf="regFrm['payerName'].errors?.['required']">Payer Name is required</span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="payerEmail">Email address :<small>(<i class="isRequiredAsterik">*</i>)</small></label>
+        <input type="payerEmail"
+            [ngClass]="{'invalid': (pageModel.isRegisterSubmited || regFrm['payerEmail'].touched) && regFrm['payerEmail'].invalid }"
+            class="form-control" id="payerEmail" formControlName="payerEmail">
+        <div class="error-container"
+            *ngIf="(pageModel.isRegisterSubmited || regFrm['payerEmail'].touched) && regFrm['payerEmail'].invalid">
+            <div class="error-message">
+                <span *ngIf="regFrm['payerEmail'].errors?.['required']">Email is required</span>
+                <span
+                    *ngIf="!regFrm['payerEmail'].errors?.['required'] && regFrm['payerEmail'].errors?.['pattern']">
+                    Please enter valid Payer Email</span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="payerMobile">Phone number :<small>(<i class="isRequiredAsterik">*</i>)</small></label>
+        <input type="text"
+            [ngClass]="{'invalid': (pageModel.isRegisterSubmited || regFrm['payerMobile'].touched) && regFrm['payerMobile'].invalid }"
+            class="form-control" id="payerMobile" formControlName="payerMobile">
+        <div class="error-container"
+            *ngIf="(pageModel.isRegisterSubmited || regFrm['payerMobile'].touched) && regFrm['payerMobile'].invalid">
+            <div class="error-message">
+                <span *ngIf="regFrm['payerMobile'].errors?.['required']">
+                    Phone Number is required.
+                </span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="amount">Amount : <small>(<i class="isRequiredAsterik">*</i>)</small> </label>
+        <input type="text"
+            [ngClass]="{'invalid': (pageModel.isRegisterSubmited || regFrm['amount'].touched) && regFrm['amount'].invalid }"
+            class="form-control" id="amount" formControlName="amount">
+        <div class="error-container"
+            *ngIf="(pageModel.isRegisterSubmited || regFrm['amount'].touched) && regFrm['amount'].invalid">
+            <div class="error-message">
+                <span *ngIf="regFrm['amount'].errors?.['required']">Amount is required</span>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="payerAddress">Address : <small>(<i class="isRequiredAsterik">*</i>)</small> </label>
+        <input type="text"
+            [ngClass]="{'invalid': (pageModel.isRegisterSubmited || regFrm['payerAddress'].touched) && regFrm['payerAddress'].invalid }"
+            class="form-control" id="payerAddress" formControlName="payerAddress">
+        <div class="error-container"
+            *ngIf="(pageModel.isRegisterSubmited || regFrm['payerAddress'].touched) && regFrm['payerAddress'].invalid">
+            <div class="error-message">
+                <span *ngIf="regFrm['payerAddress'].errors?.['required']">Address is required</span>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- <button type="submit" class="btn btn-default submit">Pay</button> -->
+    <button type="submit" class="btn btn-default">Pay</button>
+</form>
